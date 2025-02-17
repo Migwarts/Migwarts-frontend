@@ -1,0 +1,130 @@
+@font-face {
+    font-family: "omyuPretty";
+    src: url("../assets/fonts/omyuPretty.ttf") format("truetype")
+}
+@font-face {
+    font-family: "강원교육모두Bold";
+    src: url("../assets/fonts/강원교육모두Bold.ttf") format("truetype")
+}
+  
+.body {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+}
+.goHome {
+    width: 6.8vw;
+    height: auto;
+    min-width: 117px;
+    min-height: 34px;
+    position: fixed;
+    top: 4.531vw;
+    left: 5vw;
+    z-index: 3;
+}
+.gradient {
+    width: 100%;
+    height: 186px;
+    background: linear-gradient(rgba(32, 32, 32, 50%), rgba(32, 32, 32, 0%));
+    position: fixed;
+    z-index: 2;
+}
+.chatContainer {
+    width: 56.8vw;
+    max-width: 1090px;
+    height: 100%;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+.allChat {
+    width: 100%;
+    max-height: calc(100% - 172px);
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    row-gap: 55px;
+    padding: 80px 0;
+}
+.allChat::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+.otherChatContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 17px;
+    align-items: flex-start;
+}
+.myChatContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 17px;
+    align-items: flex-end;
+}
+.name {
+    font-family: 'omyuPretty';
+    font-size: 26px;
+    color: white;
+    margin: 0 4px 3px;
+}
+.otherChat {
+    max-width: 50.55%;
+    min-height: 66px;
+    padding: 18px 27px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 10px;
+    font-family: 'omyuPretty';
+    font-size: 26px;
+    line-height: 35px;
+}
+.myChat {
+    max-width: 50.55%;
+    min-height: 66px;
+    height: auto;
+    padding: 18px 27px;
+    box-sizing: border-box;
+    background-color: #F09D30;
+    border-radius: 10px;
+    font-family: 'omyuPretty';
+    font-size: 26px;
+    line-height: 35px;
+    color: white;
+}
+.inputChat {
+    width: 80.4%;
+    height: 86px;
+    border-radius: 20px;
+    padding-top: 19px;
+    padding-right: 23px;
+    padding-bottom: 20px;
+    padding-left: 41px;
+    border: 2px solid #555555;
+    background-color: rgba(0, 0, 0, 50%);
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    /* margin: 159px 0 86px; */
+    margin-bottom: 86px;
+}
+.input {
+    background-color: rgba(0, 0, 0, 0%);
+    border: 0;
+    outline: 0;
+    flex: 1;
+    margin-right: 30px;
+    margin-bottom: 1px;
+    font-family: 'omyuPretty';
+    font-size: 28px;
+    color: white;
+}
+.input::placeholder {
+    color: rgba(255, 255, 255, 50%);
+}
