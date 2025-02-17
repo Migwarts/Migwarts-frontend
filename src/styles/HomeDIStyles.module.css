@@ -1,5 +1,6 @@
 html, body {
-    height: 100%;
+    width: 100%;
+    height: 100vh;
     margin: 0;
     padding: 0; /* 필요하면 패딩도 제거 */
     box-sizing: border-box; /* 레이아웃 깨짐 방지 */
