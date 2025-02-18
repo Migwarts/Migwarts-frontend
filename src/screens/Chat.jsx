@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/ChatStyles.module.css';
 
@@ -19,7 +19,10 @@ const chatData = [
       "number": "2025",
       "name": "jin",
       "chat": [
-        "우리의 만남은 우연이 아니었어요. 모든 순간이 운명처럼 다가왔죠."
+        "우리의 만남은 우연이 아니었어요. 순간이 운명처럼 다가왔죠.",
+        "Our meeting was not a coincidence. The moment came to us like fate.",
+        "우리의 만남은 우연이 아니었어요. 모든 순간이 운명처럼 다가왔죠. 우리의 만남은 우연이 아니었어요. 모든 순간이 운명처럼 다가왔죠.",
+        "우리의 만남은 우연이 아니었어요. 모든 순간이 운명처럼 다가왔죠. 우리의 만남은 우연이 아니었어요. 모든 순간이 운명처럼 다가왔죠. 우리의 만남은 우연이 아니었어요. 모든 순간이 운명처럼 다가왔죠."
       ]
     },
     {
@@ -60,12 +63,13 @@ const chatData = [
 ];  
 
 function Chat(){
+
     return (
         <div style={{backgroundImage: `url(${backgroundImg})`}} className={styles.body}>
             <img src={goHomeChat} className={styles.goHome} />
-            <div className={styles.gradient}></div>
             <div className={styles.chatContainer}>
                 <div className={styles.allChat}>
+                  <div className={styles.gradient} />
                     {chatData.map((item, index) => {
                         if (item.name === name) { return (
                         <div className={styles.myChatContainer} key={index}>
@@ -89,8 +93,12 @@ function Chat(){
                     })};
                 </div>
                 <div className={styles.inputChat}>
-                    <input type="text" id="chat" placeholder="채팅을 남겨보세요" spellCheck={false} className={styles.input}/>
-                    <img src={sendIcon} className="logo" />
+                    <input 
+                        type="text" 
+                        placeholder="채팅을 남겨보세요" 
+                        spellCheck={false} 
+                        className={styles.input}/>
+                    <img src={sendIcon} className={styles.send} />
                 </div>
             </div>
         </div>
