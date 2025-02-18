@@ -3,10 +3,14 @@
     src: url("../assets/fonts/omyuPretty.ttf") format("truetype")
 }
 @font-face {
-    font-family: "강원교육모두Bold";
-    src: url("../assets/fonts/강원교육모두Bold.ttf") format("truetype")
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
 }
-  
+@font-face {
+    font-family: 'GangwonEdu_OTFLightA';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFLightA.woff') format('woff');
+}
+
 .body {
     width: 100%;
     height: 100vh;
@@ -14,25 +18,24 @@
     position: relative;
 }
 .goHome {
-    width: 6.8vw;
+    width: 6.09vw;
     height: auto;
-    min-width: 117px;
-    min-height: 34px;
     position: fixed;
     top: 4.531vw;
     left: 5vw;
     z-index: 3;
 }
 .gradient {
-    width: 100%;
-    height: 186px;
+    width: 100vw;
+    height: 9.69vw;
     background: linear-gradient(rgba(32, 32, 32, 50%), rgba(32, 32, 32, 0%));
-    position: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 2;
 }
 .chatContainer {
-    width: 56.8vw;
-    max-width: 1090px;
+    width: 100%;
     height: 100%;
     justify-self: center;
     display: flex;
@@ -43,12 +46,12 @@
 }
 .allChat {
     width: 100%;
-    max-height: calc(100% - 172px);
     overflow: scroll;
     display: flex;
     flex-direction: column;
-    row-gap: 55px;
-    padding: 80px 0;
+    row-gap: 3.23vw;
+    padding: 7.292vw 21.615vw 0.729vw;
+    box-sizing: border-box;
 }
 .allChat::-webkit-scrollbar {
     width: 0;
@@ -58,73 +61,73 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    row-gap: 17px;
+    row-gap: 0.885vw;
     align-items: flex-start;
 }
 .myChatContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
-    row-gap: 17px;
+    row-gap: 0.885vw;
     align-items: flex-end;
 }
 .name {
     font-family: 'omyuPretty';
-    font-size: 26px;
+    font-size: 1.25vw;
     color: white;
-    margin: 0 4px 3px;
+    margin: 0 0.21vw 0.156vw;
 }
 .otherChat {
-    max-width: 50.55%;
-    min-height: 66px;
-    padding: 18px 27px;
+    max-width: 28.8vw;
+    padding: 0.83vw 1.04vw 0.6vw;
     box-sizing: border-box;
     background-color: white;
-    border-radius: 10px;
-    font-family: 'omyuPretty';
-    font-size: 26px;
-    line-height: 35px;
+    border-radius: 0.52vw;
+    font-family: 'GangwonEdu_OTFBoldA';
+    font-size: 1.25vw;
+    line-height: 140%;
 }
 .myChat {
-    max-width: 50.55%;
-    min-height: 66px;
-    height: auto;
-    padding: 18px 27px;
+    max-width: 28.8vw;
+    padding: 0.83vw 1.04vw 0.6vw;
     box-sizing: border-box;
     background-color: #F09D30;
-    border-radius: 10px;
-    font-family: 'omyuPretty';
-    font-size: 26px;
-    line-height: 35px;
+    border-radius: 0.52vw;
+    font-family: 'GangwonEdu_OTFBoldA';
+    font-size: 1.25vw;
+    line-height: 140%;
     color: white;
 }
 .inputChat {
-    width: 80.4%;
-    height: 86px;
-    border-radius: 20px;
-    padding-top: 19px;
-    padding-right: 23px;
-    padding-bottom: 20px;
-    padding-left: 41px;
+    width: 45.73vw;
+    height: 4.48vw;
+    border-radius: 1.04vw;
+    padding-top: 0.99vw;
+    padding-right: 1.2vw;
+    padding-bottom: 1.04vw;
     border: 2px solid #555555;
     background-color: rgba(0, 0, 0, 50%);
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    /* margin: 159px 0 86px; */
-    margin-bottom: 86px;
+    margin-bottom: 4.48vw;
 }
 .input {
     background-color: rgba(0, 0, 0, 0%);
     border: 0;
     outline: 0;
     flex: 1;
-    margin-right: 30px;
-    margin-bottom: 1px;
-    font-family: 'omyuPretty';
-    font-size: 28px;
+    margin: 0.4vw 2.14vw 0;
+    font-family: 'GangwonEdu_OTFLightA';
+    font-size: 1.46vw;
     color: white;
 }
 .input::placeholder {
-    color: rgba(255, 255, 255, 50%);
+    color: rgba(255, 255, 255, 60%);
+    font-family: 'GangwonEdu_OTFLightA';
+    padding-top: 10vw;
+}
+.send {
+    width: 2.45vw;
+    height: 2.45vw;
 }
