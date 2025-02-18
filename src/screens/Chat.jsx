@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/ChatStyles.module.css';
 
@@ -6,10 +6,11 @@ import backgroundImg from '../assets/images/chatBackgroundImg.png';
 import goHomeChat from '../assets/images/goHomeChat.png';
 import sendIcon from '../assets/images/send.svg';
 
-const name = "hyun";
+const number = "2408";
+const name = "sori";
 const chatData = [
     {
-      "number": "2024",
+      "number": "2408",
       "name": "sori",
       "chat": [
         "세상에 태어날 때 인연인 사람들은 손과 손의 붉은 실이 이어진 채 온다 했죠"
@@ -40,8 +41,8 @@ const chatData = [
       ]
     },
     {
-      "number": "2028",
-      "name": "kyung",
+      "number": "2408",
+      "name": "sori",
       "chat": [
         "모든 일이 끝난 후에도 우리는 여전히 그곳에서 함께였죠."
       ]
@@ -59,19 +60,54 @@ const chatData = [
       "chat": [
         "이 길이 맞는지 확신이 없지만, 함께라면 어디든지 괜찮아요."
       ]
+    },
+    {
+      "number": "2408",
+      "name": "sori",
+      "chat": [
+        "모든 일이 끝난 후에도 우리는 여전히 그곳에서 함께였죠."
+      ]
     }
-];  
+]
 
 function Chat(){
-
+    const scrollRef = useRef(null);
+    const [message, setMessage] = useState("");
+    const lastChat = () => {
+        if(chatData[chatData.length-1].number === number){
+            const lastchat = chatData.pop();
+            return lastchat.chat;
+        }
+        else {
+            return "";
+        }
+    }
+    const [myChatting, setMyChatting] = useState(lastChat());
+    const addChat = () => {
+        const mychat = message.trim();
+        if (mychat !== "") {
+            setMyChatting(pre => [...pre, mychat]);
+            setMessage("");
+        }
+    };
+    const handleKeyDown = ( event ) => {
+        if (event.key === "Enter") {
+            addChat();
+        }
+    }
+    useEffect(() => {
+        if(scrollRef.current) {
+            scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+        }
+    }, [myChatting])
     return (
         <div style={{backgroundImage: `url(${backgroundImg})`}} className={styles.body}>
             <img src={goHomeChat} className={styles.goHome} />
             <div className={styles.chatContainer}>
-                <div className={styles.allChat}>
+                <div ref={scrollRef} className={styles.allChat}>
                   <div className={styles.gradient} />
                     {chatData.map((item, index) => {
-                        if (item.name === name) { return (
+                        if (item.number === number) { return (
                         <div className={styles.myChatContainer} key={index}>
                             <span className={styles.name}>{`${item.number} ${item.name}`}</span>
                             {item.chat.map((element, key) => (
@@ -79,8 +115,7 @@ function Chat(){
                                     {element}
                                 </span>
                             ))}
-
-                        </div> );}
+                        </div> )}
                         else { return (
                         <div className={styles.otherChatContainer} key={index}>
                             <span className={styles.name}>{`${item.number} ${item.name}`}</span>
@@ -89,16 +124,28 @@ function Chat(){
                                     {element}
                                 </span>
                             ))}
-                        </div> );}
-                    })};
+                        </div> )}
+                    })}
+                    {myChatting.length > 0 && (
+                        <div className={styles.myChatContainer}>
+                            <span className={styles.name}>{`${number} ${name}`}</span>
+                            {myChatting.map((element, key) => (
+                                <span className={styles.myChat} key={key}>
+                                    {element}
+                                </span>
+                            ))}
+                        </div> )}
                 </div>
                 <div className={styles.inputChat}>
                     <input 
                         type="text" 
                         placeholder="채팅을 남겨보세요" 
                         spellCheck={false} 
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        onKeyDown={handleKeyDown}
                         className={styles.input}/>
-                    <img src={sendIcon} className={styles.send} />
+                    <img src={sendIcon} className={styles.send} onClick={addChat}/>
                 </div>
             </div>
         </div>
