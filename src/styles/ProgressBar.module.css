@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.allContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress-container {
+    width: 90vw;
+    max-width: 1050px;
+    height: 1.67vh;
+    border-radius: 100px;
+    background: #895555;
+    overflow: hidden;
+    margin: 100px auto auto auto;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #EC8D11;
+    transition: width 0.3s ease-in-out;
+}
+
+.progressText {
+    color: rgba(255, 255, 255, 0.80);
+    font-family: 'omyu_pretty';
+    font-size: 33px;
+    width: 90vw;
+    max-width: 1050px;
+    margin-top: 18px;
+}
