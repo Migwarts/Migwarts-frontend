@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import styles from "../styles/Question.module.css"
 
 import QuestionBackGround from "../assets/images/questionBackgroundImg.png"
@@ -10,11 +11,13 @@ export default function Question() {
     const [currentIndex, setCurrentIndex] = useState(1)
     const [selectedAnswers, setSelectedAnswers] = useState([])
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         fetch('/public/data/questionData.json')
             .then((response) => response.json())
             .then((data) => {
-                const randomQuestions = getRandomQ(data, 10)
+                const randomQuestions = getRandomQ(data, 11)
                 setQuestions(randomQuestions)
             })
             .catch((error) => console.error("에러 확읺:", error));
@@ -27,10 +30,9 @@ export default function Question() {
 
     const handleAnswerSelect = (answer) => {
         setSelectedAnswers((prev) => [...prev, answer])
-        setCurrentIndex(currentIndex)
 
-        if (currentIndex >= 11) {
-            window.location.href = "/" //나중에 경로 수정
+        if (currentIndex >= 10) {
+            navigate("/") //나중에 경로 수정
         } else {
             setCurrentIndex((prev) => prev + 1)
         }
@@ -46,10 +48,8 @@ export default function Question() {
                     question={questions[currentIndex]}
                     onAnswer={handleAnswerSelect}
                 />
-            ) : (
-                <p>로 딩 중 </p>
-            )}
-
+            ) : (<div></div>)
+            }
         </div>
     )
 }
