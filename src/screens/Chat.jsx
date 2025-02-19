@@ -89,13 +89,10 @@ function Chat(){
         if (mychat !== "") {
             setMyChatting(pre => [...pre, mychat]);
             setMessage("");
-            if(inputRef.current){
-                inputRef.current.style.height = 'auto';
-            }
         }
     };
     const handleKeyDown = ( event ) => {
-        if (event.key === "Enter" && !event.shiftKey) {
+        if(event.key === "Enter" && !event.shiftKey){
             addChat();
             event.preventDefault(); 
         }
@@ -108,10 +105,17 @@ function Chat(){
     const inputChange = () => {
         if (inputRef.current) {
             setMessage(inputRef.current.value); 
+        }
+    };
+    useEffect(() => {
+        if(message.length < 40){
+            inputRef.current.style.height = `${window.innerWidth * 0.01985}px`;
+        }
+        else {
             inputRef.current.style.height = 'auto';
             inputRef.current.style.height = `${inputRef.current.scrollHeight}px`;
         }
-    };
+    }, [message]);
     return (
         <div style={{backgroundImage: `url(${backgroundImg})`}} className={styles.body}>
             <img src={goHomeChat} className={styles.goHome} />
