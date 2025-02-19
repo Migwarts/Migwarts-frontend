@@ -72,6 +72,7 @@ const chatData = [
 
 function Chat(){
     const scrollRef = useRef(null);
+    const inputRef = useRef(null);
     const [message, setMessage] = useState("");
     const lastChat = () => {
         if(chatData[chatData.length-1].number === number){
@@ -88,11 +89,15 @@ function Chat(){
         if (mychat !== "") {
             setMyChatting(pre => [...pre, mychat]);
             setMessage("");
+            if(inputRef.current){
+                inputRef.current.style.height = 'auto';
+            }
         }
     };
     const handleKeyDown = ( event ) => {
-        if (event.key === "Enter") {
+        if (event.key === "Enter" && !event.shiftKey) {
             addChat();
+            event.preventDefault(); 
         }
     }
     useEffect(() => {
@@ -100,6 +105,13 @@ function Chat(){
             scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
         }
     }, [myChatting])
+    const inputChange = () => {
+        if (inputRef.current) {
+            setMessage(inputRef.current.value); 
+            inputRef.current.style.height = 'auto';
+            inputRef.current.style.height = `${inputRef.current.scrollHeight}px`;
+        }
+    };
     return (
         <div style={{backgroundImage: `url(${backgroundImg})`}} className={styles.body}>
             <img src={goHomeChat} className={styles.goHome} />
@@ -137,12 +149,14 @@ function Chat(){
                         </div> )}
                 </div>
                 <div className={styles.inputChat}>
-                    <input 
+                    <textarea 
+                        ref={inputRef}
+                        rows={1}
                         type="text" 
                         placeholder="채팅을 남겨보세요" 
                         spellCheck={false} 
                         value={message}
-                        onChange={(e) => setMessage(e.target.value)}
+                        onChange={inputChange}
                         onKeyDown={handleKeyDown}
                         className={styles.input}/>
                     <img src={sendIcon} className={styles.send} onClick={addChat}/>
