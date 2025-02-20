@@ -9,6 +9,7 @@ export default function QuestionCard({ question, onAnswer }) {
             <div className={styles.answerContainer}>
                 {question.answers.map((answer, index) => (
                     <button key={index}
+                        className={styles.questionBtn}
                         datatype={answer.type}
                         onClick={() => handleAnswerClick(answer)}
                     >
