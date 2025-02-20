@@ -32,7 +32,7 @@ export default function Question() {
         setSelectedAnswers((prev) => [...prev, answer])
 
         if (currentIndex >= 10) {
-            navigate("/") //나중에 경로 수정
+            navigate("/loading")
         } else {
             setCurrentIndex((prev) => prev + 1)
         }
