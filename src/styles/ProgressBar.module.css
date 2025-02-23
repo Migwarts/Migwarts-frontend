@@ -22,6 +22,7 @@
 }
 
 .progress-bar {
+    border-radius: 100px;
     height: 100%;
     width: 0%;
     background: #EC8D11;
@@ -31,7 +32,7 @@
 .progressText {
     color: rgba(255, 255, 255, 0.80);
     font-family: 'omyu_pretty';
-    font-size: 33px;
+    font-size: 1.7vw;
     width: 90vw;
     max-width: 1050px;
     margin: 0.9vw 0.1vw 0;

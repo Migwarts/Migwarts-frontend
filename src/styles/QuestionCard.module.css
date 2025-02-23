@@ -16,9 +16,10 @@
     color: #FFF;
     text-align: center;
     font-family: GangwonEdu_OTFBoldA;
-    font-size: 38px;
+    font-size: 2vw;
     font-weight: 400;
     white-space: pre-line;
+    line-height: 130%;
 }
 
 .answerContainer {
@@ -34,7 +35,7 @@
     cursor: pointer;
     color: #000;
     font-family: GangwonEdu_OTFBoldA;
-    font-size: 30px;
+    font-size: 1.6vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +43,7 @@
     align-self: stretch;
 
     height: auto;
-    padding: 20px 100px;
+    padding: 1vw 5.2vw;
     width: 100vw;
     max-width: 37.5vw;
     margin: auto;
