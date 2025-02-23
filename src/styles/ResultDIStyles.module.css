@@ -1,0 +1,24 @@
+.body {
+    width: 100%;
+    height: 100%;
+}
+.backgroundImg {
+    width: 100%;
+    height: auto;
+}
+.goHomeImg {
+    width: 6.8vw;
+    height: auto;
+    position: absolute;
+    z-index: 2;
+    left: 6.1vw;
+    top: 5.7vw;
+}
+.goChatImg {
+    width: 19.79vw;
+    height: auto;
+    position: absolute;
+    z-index: 2;
+    top: 5.3vw;
+    right: 3.85vw;
+}
