@@ -38,16 +38,16 @@ body {
 }
 
 .LoadingP {
-    margin-top: 145px;
-    margin-bottom: 88px;
+    margin-top: 10.0694vw;
+    margin-bottom: 6.1111vw;
     color: #FFF;
     font-family: GangwonEdu_OTFBoldA;
-    font-size: 34px;
+    font-size: 2.3611vw;
     font-weight: 400;
 }
 
 .LoadingImage {
-    width: 393px;
-    height: 315px;
+    width: 27.2917vw;
+    height: 21.8750vw;
     aspect-ratio: 131/105;
 }
