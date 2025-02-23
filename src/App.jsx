@@ -9,7 +9,7 @@ import react from "./styles/resetStyles.module.css"
 import { DRContext } from './context/DRContext';
 
 function App() {
-  const [result, setResult] = useState(3);
+  const [result, setResult] = useState(null);
   return (
     <DRContext.Provider value={{result, setResult}}>
       <Router>
