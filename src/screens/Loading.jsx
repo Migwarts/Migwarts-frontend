@@ -10,7 +10,7 @@ export default function Loading() {
 
     useEffect(() => {
         setTimeout(() => {
-            navigate('/ResultDI');
+            navigate("/ResultDI");
         }, 5000);
     }, []);
 
