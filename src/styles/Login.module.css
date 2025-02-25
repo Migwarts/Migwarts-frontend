@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+}
+
+html,
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    /* 필요하면 패딩도 제거 */
+    box-sizing: border-box;
+    /* 레이아웃 깨짐 방지 */
+}
+
+.body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.LoginBackImg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.AllDorm {
+    display: flex;
+    justify-content: center;
+    column-gap: 70px;
+}
+
+.DormImg {
+    display: flex;
+    column-gap: 70px;
+}
+
+.GryRav,
+.HufSly {
+    display: flex;
+}
+
+.GryffindorImg, .RavenclawImg, .HufflepufImg, .SlytherinImg {
+    width: 182px;
+    height: 566px;
+}
+
+.MigwartsLogo {
+    width: 747px;
+    height: 256px;
+    margin-top: 150px;
+}
