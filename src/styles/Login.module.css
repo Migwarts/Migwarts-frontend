@@ -8,22 +8,9 @@
     src: url("../assets/fonts/omyuPretty.ttf") format("truetype")
 }
 
-html,
-body {
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    /* 필요하면 패딩도 제거 */
-    box-sizing: border-box;
-    /* 레이아웃 깨짐 방지 */
-}
-
-.body {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
+@font-face {
+    font-family: "harryPotter";
+    src: url("../assets/fonts/해리포터글씨체-na_lover.ttf") format("truetype")
 }
 
 .LoginBackImg {
@@ -76,4 +63,61 @@ body {
     transform: rotate(-6.07deg);
     margin-top: -130px;
     margin-left: 265px;
+}
+
+.TextContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.NumText, .NameText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NumCon, .NameCon {
+    color: #FFF;
+    font-family: GangwonEdu_OTFBoldA;
+    font-size: 30px;
+    font-weight: 400;
+    margin-right: 25px;
+}
+
+.NumBox, .NameBox {
+    width: 241px;
+    height: 60px;
+    border-radius: 10px;
+    border: 2px solid #555; 
+    background: rgba(0, 0, 0, 0.50);
+    outline: none;
+    color: #FFF;
+    font-family: "omyuPretty";
+    font-size: 26px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.NameBox {
+    margin-top: 10px;
+}
+
+.NumBox {
+    margin-bottom: 10px;
+}
+
+.NumBox:active, .NameBox:active {
+    border: none;
+    outline: none;
+}
+
+.BtnSrt {
+    font-family: "harryPotter";
+    color: #FFF;
+    text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.50);
+    font-size: 40px;
+    font-weight: 400;
+    background: none;
+    border: none;
+    margin-top: 141px;
 }
