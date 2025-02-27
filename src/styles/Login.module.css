@@ -67,6 +67,7 @@
 
 .TextContainer {
     display: flex;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -119,5 +120,14 @@
     font-weight: 400;
     background: none;
     border: none;
-    margin-top: 141px;
+    margin-top: 281px;
+    position: fixed;
+}
+
+.ErrorMessage {
+    color: #F09D30;
+    font-family: "omyuPretty";
+    font-size: 31px;
+    font-weight: 400;
+    margin-top: 90px;
 }

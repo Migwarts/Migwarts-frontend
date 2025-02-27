@@ -10,6 +10,19 @@ import MigwartsLogo from "../assets/images/migwartslogo.png";
 import { Link } from 'react-router-dom';
 
 export default function Login() {
+    const [studentId, setStudentId] = useState('');
+    const [name, setName] = useState('');
+    const [error, setError] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!studentId || !name) {
+            setError('학번, 이름을 입력해주세요');
+            return;
+        }
+        setError('');
+    };
+
     return (
         <div>
             <div className={styles.AllDorm}>
@@ -39,15 +52,16 @@ export default function Login() {
             </svg>
             <p className={styles.ChooseDorm}>클릭하여 각 기숙사 정보를
             <br></br>확인해보세요!</p>
-            <form className={styles.TextContainer}>
+            <form className={styles.TextContainer} onSubmit={handleSubmit}>
                 <div className={styles.NumText}>
                     <label className={styles.NumCon}>학번</label>
-                    <input type="text" className={styles.NumBox}/>
+                    <input type="text" className={styles.NumBox} value={studentId} onChange={(e) => setStudentId(e.target.value)}/>
                 </div>
                 <div className={styles.NameText}>
                     <label className={styles.NameCon}>이름</label>
-                    <input type="text" className={styles.NameBox}/>
+                    <input type="text" className={styles.NameBox} value={name} onChange={(e) => setName(e.target.value)}/>
                 </div>
+                {error && <div className={styles.ErrorMessage}>{error}</div>}
                 <button className={styles.BtnSrt}>
                     START
                 </button>
