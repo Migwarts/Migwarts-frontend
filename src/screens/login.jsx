@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useNavigate } from 'react';
 import styles from '../styles/Login.module.css';
 
 import LoginBackGround from "../assets/images/questionBackgroundImg.png";
@@ -7,6 +7,7 @@ import Ravenclaw from "../assets/images/ravenclaw.png";
 import Hufflepuf from "../assets/images/hufflepuf.png";
 import Slytherin from "../assets/images/slytherin.png";
 import MigwartsLogo from "../assets/images/migwartslogo.png";
+import { Link } from 'react-router-dom';
 
 export default function Login() {
     return (
@@ -15,13 +16,21 @@ export default function Login() {
                 <img src={LoginBackGround} className={styles.LoginBackImg} />
                 <div className={styles.DormImg}>
                     <div className={styles.GryRav}>
-                        <img src={Gryffindor} className={styles.GryffindorImg}/>
-                        <img src={Ravenclaw} className={styles.RavenclawImg}/>
+                        <Link to="/HomeDI">
+                            <img src={Gryffindor} className={styles.GryffindorImg}/>
+                        </Link>
+                        <Link to="/HomeDI">
+                            <img src={Ravenclaw} className={styles.RavenclawImg}/>
+                        </Link>
                     </div>
                     <img src={MigwartsLogo} className={styles.MigwartsLogo} />
                     <div className={styles.HufSly}>
-                        <img src={Hufflepuf} className={styles.HufflepufImg}/>
-                        <img src={Slytherin} className={styles.SlytherinImg}/>
+                        <Link to="/HomeDI">
+                            <img src={Hufflepuf} className={styles.HufflepufImg}/>
+                        </Link>
+                        <Link to="/HomeDI">
+                            <img src={Slytherin} className={styles.SlytherinImg}/>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -30,6 +39,19 @@ export default function Login() {
             </svg>
             <p className={styles.ChooseDorm}>클릭하여 각 기숙사 정보를
             <br></br>확인해보세요!</p>
+            <form className={styles.TextContainer}>
+                <div className={styles.NumText}>
+                    <label className={styles.NumCon}>학번</label>
+                    <input type="text" className={styles.NumBox}/>
+                </div>
+                <div className={styles.NameText}>
+                    <label className={styles.NameCon}>이름</label>
+                    <input type="text" className={styles.NameBox}/>
+                </div>
+                <button className={styles.BtnSrt}>
+                    START
+                </button>
+            </form>
         </div>
     );
 }
