@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useNavigate } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/Login.module.css';
 
 import LoginBackGround from "../assets/images/questionBackgroundImg.png";
@@ -8,8 +8,10 @@ import Hufflepuf from "../assets/images/hufflepuf.png";
 import Slytherin from "../assets/images/slytherin.png";
 import MigwartsLogo from "../assets/images/migwartslogo.png";
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+    const navigate = useNavigate();
     const [studentId, setStudentId] = useState('');
     const [name, setName] = useState('');
     const [error, setError] = useState('');
@@ -23,27 +25,23 @@ export default function Login() {
         setError('');
     };
 
+    const goHomeDI = (dormitory) => {
+        navigate('/HomeDI', { state: { dormitory } }); 
+    }
+
     return (
         <div>
             <div className={styles.AllDorm}>
                 <img src={LoginBackGround} className={styles.LoginBackImg} />
                 <div className={styles.DormImg}>
                     <div className={styles.GryRav}>
-                        <Link to="/HomeDI">
-                            <img src={Gryffindor} className={styles.GryffindorImg}/>
-                        </Link>
-                        <Link to="/HomeDI">
-                            <img src={Ravenclaw} className={styles.RavenclawImg}/>
-                        </Link>
+                        <img src={Gryffindor} className={styles.GryffindorImg} onClick={() => {goHomeDI(0)}}/>
+                        <img src={Ravenclaw} className={styles.RavenclawImg} onClick={() => {goHomeDI(1)}}/>
                     </div>
                     <img src={MigwartsLogo} className={styles.MigwartsLogo} />
                     <div className={styles.HufSly}>
-                        <Link to="/HomeDI">
-                            <img src={Hufflepuf} className={styles.HufflepufImg}/>
-                        </Link>
-                        <Link to="/HomeDI">
-                            <img src={Slytherin} className={styles.SlytherinImg}/>
-                        </Link>
+                        <img src={Hufflepuf} className={styles.HufflepufImg} onClick={() => {goHomeDI(2)}}/>
+                        <img src={Slytherin} className={styles.SlytherinImg} onClick={() => {goHomeDI(3)}}/>
                     </div>
                 </div>
             </div>

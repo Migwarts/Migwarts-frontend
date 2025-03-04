@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom';
 import styles from '../styles/HomeDIStyles.module.css';
 
 import DigImage from '../assets/images/DIG.png';
@@ -16,9 +16,12 @@ import goHomeR from '../assets/images/goHomeR.png';
 import goHomeS from '../assets/images/goHomeS.png';
 
 function HomeDI(){
+    const location = useLocation();
+    const dormitory = location.state?.dormitory;
+
     const [backgroundImgSrc, setBackgroundImgSrc] = useState(0);
-    const [currentImage, setCurrentImage] = useState(DigImage);
-    const [currentHome, setCurrentHome] = useState(goHomeG);
+    const [currentImage, setCurrentImage] = useState();
+    const [currentHome, setCurrentHome] = useState();
     const markClick = (i) => {
         setBackgroundImgSrc(i);
         switch(i){
@@ -42,10 +45,17 @@ function HomeDI(){
                 break;
         }
     }
+
+    useEffect(() => {
+        markClick(dormitory);
+    }, [dormitory]);
+    
     return (
         <div className={styles.body}>
             <img src={currentImage} className={styles.backgroundImg} />
-            <img src={currentHome} className={styles.homeButton}/>
+            <Link >
+                <img src={currentHome} className={styles.homeButton}/>
+            </Link>
             <div className={styles.markContainer}>
                 <div className={styles.markItem}>
                     <div className={styles.dot} style={{backgroundColor: backgroundImgSrc===0? '#660000': '#BABABA'}}/>
