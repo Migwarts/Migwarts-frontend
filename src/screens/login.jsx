@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/Login.module.css';
 
-import LoginBackGround from "../assets/images/questionBackgroundImg.png";
+import LoginBackGround from "../assets/images/loginBackgroundImg.png";
 import Gryffindor from "../assets/images/gryffindor.png";
 import Ravenclaw from "../assets/images/ravenclaw.png";
 import Hufflepuf from "../assets/images/hufflepuf.png";
