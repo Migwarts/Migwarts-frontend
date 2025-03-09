@@ -6,6 +6,7 @@ import Loading from './screens/Loading';
 import ResultDI from './screens/ResultDI';
 import Chat from './screens/Chat';
 import TestSelect from './screens/TestSelect';
+import CharacterTest from './screens/CharacterTest';
 import react from "./styles/resetStyles.module.css"
 import { DRContext } from './context/DRContext';
 import Login from './screens/login';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/login" element={<Login />} />
           <Route path="/testSelect" element={<TestSelect />} />
+          <Route path="/characterTest" element={<CharacterTest />} />
         </Routes>
       </Router>
     </DRContext.Provider>
