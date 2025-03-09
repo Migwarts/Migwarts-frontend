@@ -5,13 +5,15 @@ import Question from './screens/Question';
 import Loading from './screens/Loading';
 import ResultDI from './screens/ResultDI';
 import Chat from './screens/Chat';
+import TestSelect from './screens/TestSelect';
 import react from "./styles/resetStyles.module.css"
 import { DRContext } from './context/DRContext';
+import Login from './screens/login';
 
 function App() {
   const [result, setResult] = useState(null);
   return (
-    <DRContext.Provider value={{result, setResult}}>
+    <DRContext.Provider value={{ result, setResult }}>
       <Router>
         <Routes>
           <Route path="/" element={<HomeDI />} />
@@ -19,6 +21,8 @@ function App() {
           <Route path="/loading" element={<Loading />} />
           <Route path="/ResultDI" element={<ResultDI />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/testSelect" element={<TestSelect />} />
         </Routes>
       </Router>
     </DRContext.Provider>
