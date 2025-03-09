@@ -8,7 +8,7 @@ import { use } from "react"
 export default function TestSelect() {
     const navigate = useNavigate();
     const dormitoryTestClick = () => {
-        navigate('#')
+        navigate('/characterTest')
     }
     const characterTestClick = () => {
         navigate('/question')
