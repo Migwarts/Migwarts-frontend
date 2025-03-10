@@ -6,8 +6,8 @@ import Question from './screens/Question';
 import Loading from './screens/Loading';
 import ResultDI from './screens/ResultDI';
 import Chat from './screens/Chat';
-import react from "./styles/resetStyles.module.css";
 import { DRContext } from './context/DRContext';
+import react from "./styles/resetStyles.module.css";
 
 function App() {
   const [result, setResult] = useState(null);
