@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "../styles/ProgressBar.module.css";
 
-export default function ProgressBar({ current, total }) {
+export default function ProgressBar({ current, total, backColor }) {
     return (
         <div className={styles.allContainer}>
-            <div className={styles["progress-container"]}>
+            <div
+                style={{ background: backColor }}
+                className={styles["progress-container"]}>
                 <div
                     className={styles["progress-bar"]}
                     style={{ width: `${(current / total) * 100}%` }}

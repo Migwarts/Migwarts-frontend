@@ -37,8 +37,8 @@ export default function Question() {
         if (currentIndex >= 10) {
             let maxType = 0;
             let typeIndex = 0;
-            for(let i=0; i<resultArray.length; i++){
-                if(maxType < resultArray[i]){
+            for (let i = 0; i < resultArray.length; i++) {
+                if (maxType < resultArray[i]) {
                     typeIndex = i;
                     maxType = resultArray[i];
                 }
@@ -56,7 +56,7 @@ export default function Question() {
     return (
         <div>
             <img src={QuestionBackGround} className={styles.BackImg}></img>
-            <ProgressBar current={currentIndex} total={10} />
+            <ProgressBar current={currentIndex} total={10} backColor={"#895555"} />
 
             {questions.length > 0 ? (
                 <QuestionCard
