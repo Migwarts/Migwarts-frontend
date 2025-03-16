@@ -1,40 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/LoadingCamera.module.css";
 
-import LoadingCameraHat from "../assets/images/LodingHat.png";
-import LoadingCameraBackGround from "../assets/images/questionBackgroundImg.png";
+import LoadingCameraBackGround from "../assets/images/LoadingCamera.png";
+import LoadingCameraHat from "../assets/images/LoadingCameraHat.png";
 
 export default function LoadingCamera() {
-  const navigate = useNavigate();
+  let videoRef = useRef(null);
+
+  const getUserCamera = () => {
+    navigator.mediaDevices
+      .getUserMedia({
+        video: {
+          width: { ideal: 462 },
+          height: { ideal: 525 },
+          aspectRatio: 462 / 525,
+        },
+      })
+      .then((stream) => {
+        let video = videoRef.current;
+        video.srcObject = stream;
+        video.play();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
-    setTimeout(() => {
-      navigate("/ResultDI");
-    }, 5000);
+    getUserCamera();
   }, []);
 
-  const txt = "당신의 기숙사는 . . .";
-  const [text, setText] = useState("");
-  const [count, setcount] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setText(text + txt[count]);
-      setcount(count + 1);
-    }, 300);
-    if (count === txt.length) {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  });
-
   return (
-    <div>
-      <img src={LoadingBackGround} className={styles.LoadingBackImg} />
-      <div className={styles.AllLoading}>
-        <p className={styles.LoadingP}>{text}</p>
-        <img src={LoadingHat} className={styles.LoadingImage} />
+    <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
+      <img
+        src={LoadingCameraBackGround}
+        className={styles.LoadingCameraBackImg}
+      />
+      <div className={styles.AllLoadingCamera}>
+        <img src={LoadingCameraHat} className={styles.LoadingCameraHat} />
+        <div className={styles.VideoContainer}>
+          <video ref={videoRef}></video>
+        </div>
       </div>
     </div>
   );
