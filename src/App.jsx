@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import axios from 'axios';
-import HomeDI from './screens/homeDI';
-import Question from './screens/Question';
-import Loading from './screens/Loading';
-import ResultDI from './screens/ResultDI';
-import Chat from './screens/Chat';
-import { DRContext } from './context/DRContext';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import axios from "axios";
+import HomeDI from "./screens/homeDI";
+import Question from "./screens/Question";
+import Loading from "./screens/Loading";
+import ResultDI from "./screens/ResultDI";
+import Chat from "./screens/Chat";
+import LoadingCamera from "./screens/LoadingCamera";
+import { DRContext } from "./context/DRContext";
 import react from "./styles/resetStyles.module.css";
 
 function App() {
@@ -14,11 +15,12 @@ function App() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    axios.get('/api')
-      .then(response => {
+    axios
+      .get("/api")
+      .then((response) => {
         setMessage(response.data.message);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
@@ -32,10 +34,9 @@ function App() {
           <Route path="/loading" element={<Loading />} />
           <Route path="/ResultDI" element={<ResultDI />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/LoadingCamera" element={<LoadingCamera />} />
         </Routes>
-        <div>
-          <h1>{message || "Loading message..."}</h1>
-        </div>
+        <div>{/* <h1>{message || "Loading message..."}</h1> */}</div>
       </Router>
     </DRContext.Provider>
   );
