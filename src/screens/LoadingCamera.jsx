@@ -31,6 +31,12 @@ export default function LoadingCamera() {
     getUserCamera();
   }, []);
 
+  const [time, setTime] = useState(5);
+
+  useEffect(() => {
+    time > 0 && setTimeout(() => setTime(time - 1), 1000);
+  }, [time]);
+
   return (
     <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
       <img
@@ -42,6 +48,9 @@ export default function LoadingCamera() {
         <div className={styles.VideoContainer}>
           <video ref={videoRef}></video>
         </div>
+      </div>
+      <div className={styles.AllCountDown}>
+        <>{time > 0 && <div className={styles.CountDown}>{time}</div>}</>
       </div>
     </div>
   );

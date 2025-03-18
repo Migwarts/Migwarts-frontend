@@ -4,6 +4,11 @@
     format("woff");
 }
 
+@font-face {
+  font-family: "omyuPretty";
+  src: url("../assets/fonts/omyuPretty.ttf") format("truetype");
+}
+
 .LoadingCameraBackImg {
   position: fixed;
   top: 0;
@@ -44,4 +49,16 @@
   height: 100%;
   object-fit: cover;
   -webkit-transform: scaleX(-1);
+}
+
+.CountDown {
+  color: #fff;
+  font-family: "omyuPretty";
+  font-size: 70px;
+  font-weight: 400;
+}
+
+.AllCountDown {
+  margin-top: -850px;
+  margin-left: 1780px;
 }
