@@ -44,7 +44,7 @@ export default function Question() {
                 }
             }
             setResult(typeIndex);
-            navigate("/loading")
+            navigate("/Loading")
         } else {
             setCurrentIndex((prev) => prev + 1);
             resultArray[answer.type]++;
