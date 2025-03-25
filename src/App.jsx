@@ -41,6 +41,7 @@ function App() {
           <Route path="/characterTest" element={<CharacterTest />} />
           <Route path="/LoadingCamera" element={<LoadingCamera />} />
           <Route path="/ResultCharacter" element={<ResultCharacter />} />
+          <Route path="/Login" element={<Login/>} />
         </Routes>
         <div>{/* <h1>{message || "Loading message..."}</h1> */}</div>
       </Router>
