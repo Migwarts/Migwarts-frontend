@@ -77,3 +77,10 @@ body {
     width: 7.5vw;
     height: auto;
 }
+
+.GMark,
+.HMark,
+.RMark,
+.SMark {
+    cursor: pointer;
+}
