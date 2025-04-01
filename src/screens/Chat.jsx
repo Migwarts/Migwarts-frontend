@@ -118,7 +118,9 @@ function Chat(){
     }, [message]);
     return (
         <div style={{backgroundImage: `url(${backgroundImg})`}} className={styles.body}>
+          <Link to="/">
             <img src={goHomeChat} className={styles.goHome} />
+          </Link>
             <div className={styles.chatContainer}>
                 <div ref={scrollRef} className={styles.allChat}>
                   <div className={styles.gradient} />

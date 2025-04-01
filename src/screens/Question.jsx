@@ -10,8 +10,7 @@ import QuestionCard from "../components/questionCard"
 export default function Question() {
     const [questions, setQuestions] = useState([])
     const [currentIndex, setCurrentIndex] = useState(1)
-    const [selectedAnswers, setSelectedAnswers] = useState([])
-    const [resultArray, setResultArray] = useState([0, 0, 0, 0])
+    const { result, setResult } = useContext(DRContext);
 
     const navigate = useNavigate()
 
@@ -22,7 +21,7 @@ export default function Question() {
                 const randomQuestions = getRandomQ(data, 11)
                 setQuestions(randomQuestions)
             })
-            .catch((error) => console.error("에러 확읺:", error));
+            .catch((error) => console.error("에러 확인:", error));
     }, [])
 
     const getRandomQ = (data, count) => {
@@ -30,26 +29,22 @@ export default function Question() {
         return shuffled.slice(0, count)
     }
 
-    const { result, setResult } = useContext(DRContext);
     const handleAnswerSelect = (answer) => {
-        setSelectedAnswers((prev) => [...prev, answer])
-
         if (currentIndex >= 10) {
             let maxType = 0;
             let typeIndex = 0;
-            for (let i = 0; i < resultArray.length; i++) {
-                if (maxType < resultArray[i]) {
+            for (let i = 0; i < result.length; i++) {
+                if (maxType < result[i]) {
                     typeIndex = i;
-                    maxType = resultArray[i];
+                    maxType = result[i];
                 }
             }
             setResult(typeIndex);
-            navigate("/Loading")
+            navigate("/Loading");
         } else {
             setCurrentIndex((prev) => prev + 1);
-            resultArray[answer.type]++;
-            setResultArray([...resultArray]);
-            console.log(resultArray);
+            result[answer.type]++;
+            setResult([...result]);
         }
     }
 
