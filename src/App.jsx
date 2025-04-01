@@ -10,7 +10,7 @@ import LoadingCamera from "./screens/LoadingCamera";
 import TestSelect from "./screens/TestSelect";
 import CharacterTest from "./screens/CharacterTest";
 import ResultCharacter from "./screens/ResultCharacter";
-import Login from "./screens/login"
+import Login from "./screens/login";
 import { DRContext } from "./context/DRContext";
 import { CharacterContext } from "./context/CharacterContext";
 import react from "./styles/resetStyles.module.css";
@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("/api")
+      .get("http://localhost:5002/api")
       .then((response) => {
         setMessage(response.data.message);
       })
@@ -33,23 +33,23 @@ function App() {
 
   return (
     <CharacterContext.Provider value={{ charResult, setCharResult }}>
-    <DRContext.Provider value={{ result, setResult }}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/HomeDI" element={<HomeDI />} />
-          <Route path="/question" element={<Question />} />
-          <Route path="/loading" element={<Loading />} />
-          <Route path="/ResultDI" element={<ResultDI />} />
-          <Route path="/chat" element={<Chat />} />
-          <Route path="/testSelect" element={<TestSelect />} />
-          <Route path="/characterTest" element={<CharacterTest />} />
-          <Route path="/LoadingCamera" element={<LoadingCamera />} />
-          <Route path="/ResultCharacter" element={<ResultCharacter />} />
-        </Routes>
-        <div>{/* <h1>{message || "Loading message..."}</h1> */}</div>
-      </Router>
-    </DRContext.Provider>
+      <DRContext.Provider value={{ result, setResult }}>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/HomeDI" element={<HomeDI />} />
+            <Route path="/question" element={<Question />} />
+            <Route path="/loading" element={<Loading />} />
+            <Route path="/ResultDI" element={<ResultDI />} />
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/testSelect" element={<TestSelect />} />
+            <Route path="/characterTest" element={<CharacterTest />} />
+            <Route path="/LoadingCamera" element={<LoadingCamera />} />
+            <Route path="/ResultCharacter" element={<ResultCharacter />} />
+          </Routes>
+          <div>{/* <h1>{message || "Loading message..."}</h1> */}</div>
+        </Router>
+      </DRContext.Provider>
     </CharacterContext.Provider>
   );
 }
