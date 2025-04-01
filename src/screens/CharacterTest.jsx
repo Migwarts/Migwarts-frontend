@@ -8,7 +8,7 @@ import BackgroundImg from "../assets/images/characterTestBackgroundImg.png"
 import ProgressBar from "../components/ProgressBar";
 
 export default function CharacterTest() {
-    const [currentIndex, setCurrentIndex] = useState(0)
+    const [currentIndex, setCurrentIndex] = useState(1)
     const [questions, setQuestions] = useState([])
     const answers = ["예", "아니요"]
 
