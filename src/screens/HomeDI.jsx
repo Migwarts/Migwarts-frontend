@@ -53,7 +53,7 @@ function HomeDI(){
     return (
         <div className={styles.body}>
             <img src={currentImage} className={styles.backgroundImg} />
-            <Link >
+            <Link to="/">
                 <img src={currentHome} className={styles.homeButton}/>
             </Link>
             <div className={styles.markContainer}>
