@@ -37,9 +37,13 @@
 .GryRav,
 .HufSly {
     display: flex;
+    cursor: pointer;
 }
 
-.GryffindorImg, .RavenclawImg, .HufflepufImg, .SlytherinImg {
+.GryffindorImg,
+.RavenclawImg,
+.HufflepufImg,
+.SlytherinImg {
     width: 182px;
     height: 566px;
 }
@@ -71,13 +75,15 @@
     flex-direction: column;
 }
 
-.NumText, .NameText {
+.NumText,
+.NameText {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.NumCon, .NameCon {
+.NumCon,
+.NameCon {
     color: #FFF;
     font-family: GangwonEdu_OTFBoldA;
     font-size: 30px;
@@ -85,11 +91,12 @@
     margin-right: 25px;
 }
 
-.NumBox, .NameBox {
+.NumBox,
+.NameBox {
     width: 241px;
     height: 60px;
     border-radius: 10px;
-    border: 2px solid #555; 
+    border: 2px solid #555;
     background: rgba(0, 0, 0, 0.50);
     outline: none;
     color: #FFF;
@@ -107,7 +114,8 @@
     margin-bottom: 10px;
 }
 
-.NumBox:active, .NameBox:active {
+.NumBox:active,
+.NameBox:active {
     border: none;
     outline: none;
 }

@@ -15,7 +15,7 @@ import goHomeH from '../assets/images/goHomeH.png';
 import goHomeR from '../assets/images/goHomeR.png';
 import goHomeS from '../assets/images/goHomeS.png';
 
-function HomeDI(){
+function HomeDI() {
     const location = useLocation();
     const dormitory = location.state?.dormitory;
 
@@ -24,20 +24,20 @@ function HomeDI(){
     const [currentHome, setCurrentHome] = useState();
     const markClick = (i) => {
         setBackgroundImgSrc(i);
-        switch(i){
-            case 0: 
+        switch (i) {
+            case 0:
                 setCurrentImage(DigImage);
                 setCurrentHome(goHomeG);
                 break;
-            case 1: 
+            case 1:
                 setCurrentImage(DirImage);
                 setCurrentHome(goHomeR);
                 break;
-            case 2: 
+            case 2:
                 setCurrentImage(DihImage);
                 setCurrentHome(goHomeH);
                 break;
-            case 3: 
+            case 3:
                 setCurrentImage(DisImage);
                 setCurrentHome(goHomeS);
                 break;
@@ -49,7 +49,7 @@ function HomeDI(){
     useEffect(() => {
         markClick(dormitory);
     }, [dormitory]);
-    
+
     return (
         <div className={styles.body}>
             <img src={currentImage} className={styles.backgroundImg} />
@@ -58,20 +58,20 @@ function HomeDI(){
             </Link>
             <div className={styles.markContainer}>
                 <div className={styles.markItem}>
-                    <div className={styles.dot} style={{backgroundColor: backgroundImgSrc===0? '#660000': '#BABABA'}}/>
-                    <img src={GryffindorMark} className={styles.GMark} onClick={()=>{markClick(0)}}/>
+                    <div className={styles.dot} style={{ backgroundColor: backgroundImgSrc === 0 ? '#660000' : '#BABABA' }} />
+                    <img src={GryffindorMark} className={styles.GMark} onClick={() => { markClick(0) }} />
                 </div>
                 <div className={styles.markItem}>
-                    <div className={styles.dot} style={{backgroundColor: backgroundImgSrc===1? '#1A3956': '#BABABA'}}/>
-                    <img src={RauenclawMark} className={styles.HMark} onClick={()=>{markClick(1)}}/>
+                    <div className={styles.dot} style={{ backgroundColor: backgroundImgSrc === 1 ? '#1A3956' : '#BABABA' }} />
+                    <img src={RauenclawMark} className={styles.HMark} onClick={() => { markClick(1) }} />
                 </div>
                 <div className={styles.markItem}>
-                    <div className={styles.dot} style={{backgroundColor: backgroundImgSrc===2? '#FF9D0B': '#BABABA'}}/>
-                    <img src={HufflepufMark} className={styles.RMark} onClick={()=>{markClick(2)}}/>
+                    <div className={styles.dot} style={{ backgroundColor: backgroundImgSrc === 2 ? '#FF9D0B' : '#BABABA' }} />
+                    <img src={HufflepufMark} className={styles.RMark} onClick={() => { markClick(2) }} />
                 </div>
                 <div className={styles.markItem}>
-                    <div className={styles.dot} style={{backgroundColor: backgroundImgSrc===3? '#2F751C': '#BABABA'}}/>
-                    <img src={SlytherinMark} className={styles.SMark} onClick={()=>{markClick(3)}}/>
+                    <div className={styles.dot} style={{ backgroundColor: backgroundImgSrc === 3 ? '#2F751C' : '#BABABA' }} />
+                    <img src={SlytherinMark} className={styles.SMark} onClick={() => { markClick(3) }} />
                 </div>
             </div>
         </div>

@@ -16,37 +16,37 @@ import goHomeH from '../assets/images/goHomeH.png';
 import goHomeR from '../assets/images/goHomeR.png';
 import goHomeS from '../assets/images/goHomeS.png';
 
-function ResultDI(){
+function ResultDI() {
     const { result } = useContext(DRContext);
     const [goChatUrl, setGoChatUrl] = useState(null);
-    const [goHomeUrl, setGoHomeUrl] = useState(null); 
-    const [backgroundUrl, setBackgroundUrl] = useState(null); 
+    const [goHomeUrl, setGoHomeUrl] = useState(null);
+    const [backgroundUrl, setBackgroundUrl] = useState(null);
     useEffect(() => {
-        if(result == 0){
+        if (result == 0) {
             setGoChatUrl(goChatG);
             setGoHomeUrl(goHomeG);
             setBackgroundUrl(DigImage);
         }
-        else if(result == 1){
+        else if (result == 1) {
             setGoChatUrl(goChatH);
             setGoHomeUrl(goHomeH);
             setBackgroundUrl(DihImage);
         }
-        else if(result == 2){
+        else if (result == 2) {
             setGoChatUrl(goChatR);
             setGoHomeUrl(goHomeR);
             setBackgroundUrl(DirImage);
         }
-        else if(result == 3){
+        else if (result == 3) {
             setGoChatUrl(goChatS);
             setGoHomeUrl(goHomeS);
             setBackgroundUrl(DisImage);
         }
     }, []);
-    return(
+    return (
         <div className={styles.body}>
             <img src={backgroundUrl} className={styles.backgroundImg} />
-            <img src={goHomeUrl} className={styles.goHomeImg} />
+            <Link to="/"><img src={goHomeUrl} className={styles.goHomeImg} /></Link>
             <Link to="/chat">
                 <img src={goChatUrl} className={styles.goChatImg} />
             </Link>
