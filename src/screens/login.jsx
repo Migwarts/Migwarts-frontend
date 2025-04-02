@@ -29,7 +29,7 @@ export default function Login() {
     try {
       console.log("📡 데이터 전송 중:", { number: studentId, name }); // 👈 여기도 로그 추가
 
-      const response = await fetch("http://localhost:5002/api/post/student", {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/post/student`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ number: studentId, name }),

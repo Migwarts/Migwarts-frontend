@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5002/api")
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api`)
       .then((response) => {
         setMessage(response.data.message);
       })
