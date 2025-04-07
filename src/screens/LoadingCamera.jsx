@@ -38,7 +38,7 @@ export default function LoadingCamera() {
   }, [time]);
 
   return (
-    <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
+    <div style={{ position: "relative", width: "100vw", height: "100vh", overflowX: "hidden" }}>
       <img
         src={LoadingCameraBackGround}
         className={styles.LoadingCameraBackImg}
