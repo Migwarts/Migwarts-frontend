@@ -54,7 +54,7 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <div style={{ overflowX: "hidden" }}>
       <div className={styles.AllDorm}>
         <img src={LoginBackGround} className={styles.LoginBackImg} />
         <div className={styles.DormImg}>
