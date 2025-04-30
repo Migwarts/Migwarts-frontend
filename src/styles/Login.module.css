@@ -1,141 +1,148 @@
 @font-face {
-    font-family: 'GangwonEdu_OTFBoldA';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff")
+    format("woff");
 }
 
 @font-face {
-    font-family: "omyuPretty";
-    src: url("../assets/fonts/omyuPretty.ttf") format("truetype")
+  font-family: "omyuPretty";
+  src: url("../assets/fonts/omyuPretty.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "harryPotter";
-    src: url("../assets/fonts/해리포터글씨체-na_lover.ttf") format("truetype")
+  font-family: "harryPotter";
+  src: url("../assets/fonts/해리포터글씨체-na_lover.ttf") format("truetype");
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .LoginBackImg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .AllDorm {
-    display: flex;
-    justify-content: center;
-    column-gap: 70px;
+  display: flex;
+  justify-content: center;
+  column-gap: 70px;
 }
 
 .DormImg {
-    display: flex;
-    column-gap: 70px;
+  display: flex;
+  column-gap: 70px;
 }
 
 .GryRav,
 .HufSly {
-    display: flex;
-    cursor: pointer;
+  display: flex;
+  cursor: pointer;
 }
 
 .GryffindorImg,
 .RavenclawImg,
 .HufflepufImg,
 .SlytherinImg {
-    width: 182px;
-    height: 566px;
+  width: 182px;
+  height: 566px;
 }
 
 .MigwartsLogo {
-    width: 747px;
-    height: 256px;
-    margin-top: 150px;
+  width: 747px;
+  height: 256px;
+  margin-top: 150px;
 }
 
 .PickArrow {
-    margin-left: 180px;
+  margin-left: 180px;
 }
 
 .ChooseDorm {
-    color: rgba(255, 255, 255, 0.70);
-    font-family: "omyuPretty";
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 150%;
-    transform: rotate(-6.07deg);
-    margin-top: -130px;
-    margin-left: 265px;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "omyuPretty";
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 150%;
+  transform: rotate(-6.07deg);
+  margin-top: -130px;
+  margin-left: 265px;
 }
 
 .TextContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .NumText,
 .NameText {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .NumCon,
 .NameCon {
-    color: #FFF;
-    font-family: GangwonEdu_OTFBoldA;
-    font-size: 30px;
-    font-weight: 400;
-    margin-right: 25px;
+  color: #fff;
+  font-family: GangwonEdu_OTFBoldA;
+  font-size: 30px;
+  font-weight: 400;
+  margin-right: 25px;
 }
 
 .NumBox,
 .NameBox {
-    width: 241px;
-    height: 60px;
-    border-radius: 10px;
-    border: 2px solid #555;
-    background: rgba(0, 0, 0, 0.50);
-    outline: none;
-    color: #FFF;
-    font-family: "omyuPretty";
-    font-size: 26px;
-    font-weight: 400;
-    text-align: center;
+  width: 241px;
+  height: 60px;
+  border-radius: 10px;
+  border: 2px solid #555;
+  background: rgba(0, 0, 0, 0.5);
+  outline: none;
+  color: #fff;
+  font-family: "omyuPretty";
+  font-size: 26px;
+  font-weight: 400;
+  text-align: center;
 }
 
 .NameBox {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .NumBox {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .NumBox:active,
 .NameBox:active {
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 }
 
 .BtnSrt {
-    font-family: "harryPotter";
-    color: #FFF;
-    text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.50);
-    font-size: 40px;
-    font-weight: 400;
-    background: none;
-    border: none;
-    margin-top: 281px;
-    position: fixed;
+  font-family: "harryPotter";
+  color: #fff;
+  text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
+  font-size: 40px;
+  font-weight: 400;
+  background: none;
+  border: none;
+  margin-top: 281px;
+  position: fixed;
 }
 
 .ErrorMessage {
-    color: #F09D30;
-    font-family: "omyuPretty";
-    font-size: 31px;
-    font-weight: 400;
-    margin-top: 90px;
+  color: #f09d30;
+  font-family: "omyuPretty";
+  font-size: 31px;
+  font-weight: 400;
+  margin-top: 90px;
 }
