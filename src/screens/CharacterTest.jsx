@@ -11,7 +11,7 @@ export default function CharacterTest() {
     const navigate = useNavigate()
     const [questions, setQuestions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(1);
-    const { charResult, setCharResult } = useContext(CharacterContext);
+    const { charResult, setCharResult, setCharacter } = useContext(CharacterContext);
 
     useEffect(() => {
         fetch('/public/data/questionDataChr.json')
@@ -38,7 +38,8 @@ export default function CharacterTest() {
                     maxType = charResult[i];
                 }
             }
-            setCharResult(maxIndex);
+            setCharacter(maxIndex);
+            setCharResult(Array(12).fill(0));
             navigate("/ResultCharacter");
         } else {
             setCurrentIndex((pre) => pre+1);

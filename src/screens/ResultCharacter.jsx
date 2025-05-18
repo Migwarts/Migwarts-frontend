@@ -29,14 +29,14 @@ const characterImages = [
 ]
 
 export default function ResultCharacter() {
-    const { charResult } = useContext(CharacterContext);
+    const { character } = useContext(CharacterContext);
     const [backgroundUrl, setBackgroundUrl] = useState(null);
     useEffect(() => {
-        if (charResult >= 0 && charResult < characterImages.length) {
-            setBackgroundUrl(characterImages[charResult]);
+        if (character >= 0 && character < characterImages.length) {
+            setBackgroundUrl(characterImages[character]);
         }
-        console.log(charResult);
-    }, [charResult]);
+        console.log(character);
+    }, [character]);
     return (
         <div>
             <img src={backgroundUrl} className={styles.characterBackground}></img>

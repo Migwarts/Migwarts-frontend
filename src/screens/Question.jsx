@@ -10,7 +10,7 @@ import QuestionCard from "../components/questionCard"
 export default function Question() {
     const [questions, setQuestions] = useState([])
     const [currentIndex, setCurrentIndex] = useState(1)
-    const { result, setResult } = useContext(DRContext);
+    const { result, setResult, setDormitory } = useContext(DRContext);
 
     const navigate = useNavigate()
 
@@ -39,7 +39,8 @@ export default function Question() {
                     maxType = result[i];
                 }
             }
-            setResult(typeIndex);
+            setDormitory(typeIndex);
+            setResult(Array(4).fill(0));
             navigate("/Loading");
         } else {
             setCurrentIndex((prev) => prev + 1);

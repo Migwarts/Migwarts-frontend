@@ -17,7 +17,23 @@ import react from "./styles/resetStyles.module.css";
 
 function App() {
   const [result, setResult] = useState(Array(4).fill(0));
+  const [dormitory, setDormitoryState] = useState(() => {
+    const stored = localStorage.getItem('dormitory');
+    return stored ? JSON.parse(stored) : null;
+  });
+  const setDormitory = (dormitory) => {
+    setDormitoryState(dormitory);
+    localStorage.setItem('dormitory', JSON.stringify(dormitory));
+  }
   const [charResult, setCharResult] = useState(Array(12).fill(0));
+  const [character, setCharacterState] = useState(() => {
+    const stored = localStorage.getItem('character');
+    return stored ? JSON.parse(stored) : null;
+  })
+  const setCharacter = (character) => {
+    setCharacterState(character);
+    localStorage.setItem('character', JSON.stringify(character))
+  }
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -32,8 +48,8 @@ function App() {
   }, []);
 
   return (
-    <CharacterContext.Provider value={{ charResult, setCharResult }}>
-      <DRContext.Provider value={{ result, setResult }}>
+    <CharacterContext.Provider value={{ charResult, setCharResult, character, setCharacter }}>
+      <DRContext.Provider value={{ result, setResult, dormitory, setDormitory }}>
         <Router>
           <Routes>
             <Route path="/" element={<Login />} />
