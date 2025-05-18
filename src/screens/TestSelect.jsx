@@ -8,10 +8,10 @@ import { use } from "react"
 export default function TestSelect() {
     const navigate = useNavigate();
     const dormitoryTestClick = () => {
-        navigate('/CharacterTest')
+        navigate('/question')
     }
     const characterTestClick = () => {
-        navigate('/question')
+        navigate('/CharacterTest')
     }
 
     return (
