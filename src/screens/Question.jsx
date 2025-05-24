@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styles from "../styles/Question.module.css"
-import { DRContext } from "../context/DRContext"
+import { ResultContext } from "../context/ResultContext"
 
 import QuestionBackGround from "../assets/images/questionBackgroundImg.png"
 import ProgressBar from "../components/ProgressBar"
@@ -10,7 +10,7 @@ import QuestionCard from "../components/questionCard"
 export default function Question() {
     const [questions, setQuestions] = useState([])
     const [currentIndex, setCurrentIndex] = useState(1)
-    const { result, setResult, setDormitory } = useContext(DRContext);
+    const { dormitoryArr, setDormitoryArr, setDormitoryResult } = useContext(ResultContext);
 
     const navigate = useNavigate()
 
@@ -33,21 +33,24 @@ export default function Question() {
         if (currentIndex >= 10) {
             let maxType = 0;
             let typeIndex = 0;
-            for (let i = 0; i < result.length; i++) {
-                if (maxType < result[i]) {
+            for (let i = 0; i < dormitoryArr.length; i++) {
+                if (maxType < dormitoryArr[i]) {
                     typeIndex = i;
-                    maxType = result[i];
+                    maxType = dormitoryArr[i];
                 }
             }
-            setDormitory(typeIndex);
-            setResult(Array(4).fill(0));
+            setDormitoryResult(typeIndex);
+            setDormitoryArr(Array(4).fill(0));
             navigate("/Loading");
         } else {
             setCurrentIndex((prev) => prev + 1);
-            result[answer.type]++;
-            setResult([...result]);
+            dormitoryArr[answer.type]++;
+            setDormitoryArr([...dormitoryArr]);
         }
     }
+    // useEffect(() => {
+    //     console.log(dormitoryArr);
+    // }, [dormitoryArr])
 
     return (
         <div>

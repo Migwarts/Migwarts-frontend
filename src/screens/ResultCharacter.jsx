@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import styles from '../styles/ResultCharacter.module.css';
-import { CharacterContext } from "../context/CharacterContext"
+import { ResultContext } from '../context/ResultContext';
 
 import hermione from "../assets/images/Hermione.png"
 import herrypoter from "../assets/images/harryPotter.png"
@@ -29,14 +29,14 @@ const characterImages = [
 ]
 
 export default function ResultCharacter() {
-    const { character } = useContext(CharacterContext);
+    const { characterResult } = useContext(ResultContext);
     const [backgroundUrl, setBackgroundUrl] = useState(null);
     useEffect(() => {
-        if (character >= 0 && character < characterImages.length) {
-            setBackgroundUrl(characterImages[character]);
+        if (characterResult >= 0 && characterResult < characterImages.length) {
+            setBackgroundUrl(characterImages[characterResult]);
         }
-        console.log(character);
-    }, [character]);
+        console.log(characterResult);
+    }, [characterResult]);
     return (
         <div>
             <img src={backgroundUrl} className={styles.characterBackground}></img>

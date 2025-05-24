@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "../styles/Login.module.css";
 
 import LoginBackGround from "../assets/images/loginBackgroundImg.png";
@@ -9,13 +9,15 @@ import Slytherin from "../assets/images/slytherin.png";
 import MigwartsLogo from "../assets/images/migwartslogo.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { InfoContext } from "../context/InfoContext";
 
 export default function Login() {
   const navigate = useNavigate();
   const [studentId, setStudentId] = useState("");
-  const [name, setName] = useState("");
+  const [name, setNameState] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const {setName, setNumber} = useContext(InfoContext)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,6 +43,9 @@ export default function Login() {
       if (!response.ok) {
         throw new Error(data.message || "서버 오류");
       }
+      
+      setName(name);
+      setNumber(studentId);
     } catch (error) {
       console.error("❌ 요청 실패:", error);
       setError(error.message);
@@ -127,7 +132,7 @@ export default function Login() {
             type="text"
             className={styles.NameBox}
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setNameState(e.target.value)}
           />
         </div>
         {error && <div className={styles.ErrorMessage}>{error}</div>}

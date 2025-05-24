@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import styles from '../styles/ResultDIStyles.module.css';
-import { DRContext } from "../context/DRContext"
+import { ResultContext } from '../context/ResultContext';
 
 import DigImage from '../assets/images/DIG.png';
 import DihImage from '../assets/images/DIH.png';
@@ -17,27 +17,27 @@ import goHomeR from '../assets/images/goHomeR.png';
 import goHomeS from '../assets/images/goHomeS.png';
 
 function ResultDI() {
-    const { dormitory } = useContext(DRContext);
+    const { dormitoryResult } = useContext(ResultContext);
     const [goChatUrl, setGoChatUrl] = useState(null);
     const [goHomeUrl, setGoHomeUrl] = useState(null);
     const [backgroundUrl, setBackgroundUrl] = useState(null);
     useEffect(() => {
-        if (dormitory == 0) {
+        if (dormitoryResult == 0) {
             setGoChatUrl(goChatG);
             setGoHomeUrl(goHomeG);
             setBackgroundUrl(DigImage);
         }
-        else if (dormitory == 1) {
+        else if (dormitoryResult == 1) {
             setGoChatUrl(goChatH);
             setGoHomeUrl(goHomeH);
             setBackgroundUrl(DihImage);
         }
-        else if (dormitory == 2) {
+        else if (dormitoryResult == 2) {
             setGoChatUrl(goChatR);
             setGoHomeUrl(goHomeR);
             setBackgroundUrl(DirImage);
         }
-        else if (dormitory == 3) {
+        else if (dormitoryResult == 3) {
             setGoChatUrl(goChatS);
             setGoHomeUrl(goHomeS);
             setBackgroundUrl(DisImage);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import styles from "../styles/Question.module.css";
 import { useNavigate } from "react-router-dom"
-import { CharacterContext } from "../context/CharacterContext";
+import { ResultContext } from "../context/ResultContext";
 
 import BackgroundImg from "../assets/images/characterTestBackgroundImg.png";
 import ProgressBar from "../components/ProgressBar";
@@ -11,7 +11,7 @@ export default function CharacterTest() {
     const navigate = useNavigate()
     const [questions, setQuestions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(1);
-    const { charResult, setCharResult, setCharacter } = useContext(CharacterContext);
+    const { characterArr, setCharacterArr, setCharacterResult } = useContext(ResultContext);
 
     useEffect(() => {
         fetch('/public/data/questionDataChr.json')
@@ -32,25 +32,28 @@ export default function CharacterTest() {
         if(currentIndex >= 10){
             let maxType = 0;
             let maxIndex = 0;
-            for (let i = 0; i < charResult.length; i++) {
-                if (maxType < charResult[i]) {
+            for (let i = 0; i < characterArr.length; i++) {
+                if (maxType < characterArr[i]) {
                     maxIndex = i;
-                    maxType = charResult[i];
+                    maxType = characterArr[i];
                 }
             }
-            setCharacter(maxIndex);
-            setCharResult(Array(12).fill(0));
+            setCharacterResult(maxIndex)
+            setCharacterArr(Array(12).fill(0));
             navigate("/ResultCharacter");
         } else {
             setCurrentIndex((pre) => pre+1);
             if(answer === true){
                 for(let i=0; i<questions[currentIndex]['answer']['increment'].length; i++){
-                    charResult[questions[currentIndex]['answer']['increment'][i]]++;
+                    characterArr[questions[currentIndex]['answer']['increment'][i]]++;
                 }
-                setCharResult([...charResult]);
+                setCharacterArr([...characterArr]);
             }
         }
-    }    
+    }   
+    // useEffect(() => {
+    //     console.log(characterArr);
+    // }, [characterArr]) 
 
     return (
         <div>
