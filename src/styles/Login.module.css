@@ -38,7 +38,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .DormImg {
   display: flex;
-  column-gap: 70px;
+  column-gap: 50px;
 }
 
 .GryRav,
@@ -51,29 +51,30 @@ input[type="number"]::-webkit-inner-spin-button {
 .RavenclawImg,
 .HufflepufImg,
 .SlytherinImg {
-  width: 182px;
-  height: 566px;
+  width: 162px;
+  height: 476px;
 }
 
 .MigwartsLogo {
-  width: 747px;
-  height: 256px;
+  width: 707px;
+  height: 216px;
   margin-top: 150px;
 }
 
 .PickArrow {
-  margin-left: 180px;
+  margin-left: 40px;
 }
 
 .ChooseDorm {
   color: rgba(255, 255, 255, 0.7);
   font-family: "omyuPretty";
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 400;
   line-height: 150%;
   transform: rotate(-6.07deg);
-  margin-top: -130px;
-  margin-left: 265px;
+  margin-top: -52px;
+  margin-left: 115px;
+  width: 300px;
 }
 
 .TextContainer {
@@ -93,14 +94,14 @@ input[type="number"]::-webkit-inner-spin-button {
 .NameCon {
   color: #fff;
   font-family: GangwonEdu_OTFBoldA;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 400;
   margin-right: 25px;
 }
 
 .NumBox,
 .NameBox {
-  width: 241px;
+  width: 231px;
   height: 60px;
   border-radius: 10px;
   border: 2px solid #555;
@@ -115,6 +116,10 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .NameBox {
   margin-top: 10px;
+}
+
+.NumText {
+  margin-top: -90px;
 }
 
 .NumBox {
@@ -135,14 +140,14 @@ input[type="number"]::-webkit-inner-spin-button {
   font-weight: 400;
   background: none;
   border: none;
-  margin-top: 281px;
+  margin-top: 151px;
   position: fixed;
 }
 
 .ErrorMessage {
   color: #f09d30;
   font-family: "omyuPretty";
-  font-size: 31px;
+  font-size: 25px;
   font-weight: 400;
-  margin-top: 90px;
+  margin-top: 55px;
 }
