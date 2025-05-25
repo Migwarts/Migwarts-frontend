@@ -17,7 +17,7 @@ export default function Login() {
   const [name, setNameState] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const {setName, setNumber, setUserId} = useContext(InfoContext)
+  const { setName, setNumber, setUserId } = useContext(InfoContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,11 +43,11 @@ export default function Login() {
       if (!response.ok) {
         throw new Error(data.message || "서버 오류");
       }
-      
+
       setName(name);
       setNumber(studentId);
-      setUserId(data.id)
-      navigate("/testSelect")
+      setUserId(data.id);
+      navigate("/testSelect");
     } catch (error) {
       console.error("❌ 요청 실패:", error);
       setError(error.message);

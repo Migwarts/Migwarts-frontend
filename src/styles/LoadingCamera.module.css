@@ -28,20 +28,20 @@
 .LoadingCameraHat {
   position: relative;
   z-index: 2;
-  width: 25.2917vw;
-  height: 17.875vw;
+  width: 30.2917vw;
+  height: 22.875vw;
   aspect-ratio: 131/105;
-  margin-top: 100px;
+  margin-top: 20px;
 }
 
 .VideoContainer {
   z-index: 0;
-  width: 462px;
-  height: 525px;
+  width: 372px;
+  height: 435px;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  margin-top: -87px;
+  margin-top: -90px;
 }
 
 .VideoContainer video {
@@ -51,14 +51,16 @@
   -webkit-transform: scaleX(-1);
 }
 
+.AllCountDown {
+  position: absolute;
+  top: 30px;
+  right: 60px;
+  z-index: 10;
+}
+
 .CountDown {
   color: #fff;
   font-family: "omyuPretty";
-  font-size: 70px;
+  font-size: 50px;
   font-weight: 400;
-}
-
-.AllCountDown {
-  margin-top: -850px;
-  margin-left: 1780px;
 }
