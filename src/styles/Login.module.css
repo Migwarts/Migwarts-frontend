@@ -1,7 +1,6 @@
 @font-face {
   font-family: "GangwonEdu_OTFBoldA";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff")
-    format("woff");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
 }
 
 @font-face {
@@ -142,6 +141,7 @@ input[type="number"]::-webkit-inner-spin-button {
   border: none;
   margin-top: 151px;
   position: fixed;
+  cursor: pointer;
 }
 
 .ErrorMessage {
