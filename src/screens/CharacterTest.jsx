@@ -10,7 +10,7 @@ import CharacterQuestionCard from "../components/CharacterQuestionCard";
 export default function CharacterTest() {
   const navigate = useNavigate();
   const [questions, setQuestions] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const { characterArr, setCharacterArr, setCharacterResult } =
     useContext(ResultContext);
 
@@ -18,7 +18,7 @@ export default function CharacterTest() {
     fetch("/public/data/questionDataChr.json")
       .then((response) => response.json())
       .then((data) => {
-        const randomQuestions = getRandomQ(data, 11);
+        const randomQuestions = getRandomQ(data, 10);
         setQuestions(randomQuestions);
       })
       .catch((error) => console.error("에러 확인:", error));

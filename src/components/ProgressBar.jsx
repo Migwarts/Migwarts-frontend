@@ -13,7 +13,7 @@ export default function ProgressBar({ current, total, backColor }) {
                 ></div>
             </div>
             <p className={styles.progressText}>
-                {current}/{total}
+                {current + 1}/{total}
             </p>
         </div>
     );
