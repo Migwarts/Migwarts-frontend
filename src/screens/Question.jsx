@@ -9,7 +9,7 @@ import QuestionCard from "../components/questionCard";
 
 export default function Question() {
   const [questions, setQuestions] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const { dormitoryArr, setDormitoryArr, setDormitoryResult } =
     useContext(ResultContext);
 
@@ -19,7 +19,7 @@ export default function Question() {
     fetch("/public/data/questionData.json")
       .then((response) => response.json())
       .then((data) => {
-        const randomQuestions = getRandomQ(data, 11);
+        const randomQuestions = getRandomQ(data, 10);
         setQuestions(randomQuestions);
       })
       .catch((error) => console.error("에러 확인:", error));
