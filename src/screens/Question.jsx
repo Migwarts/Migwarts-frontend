@@ -7,6 +7,8 @@ import QuestionBackGround from "../assets/images/questionBackgroundImg.png";
 import ProgressBar from "../components/ProgressBar";
 import QuestionCard from "../components/questionCard";
 
+const MAX_QUESTION_COUNT = 10;
+
 export default function Question() {
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,7 +21,7 @@ export default function Question() {
     fetch("/public/data/questionData.json")
       .then((response) => response.json())
       .then((data) => {
-        const randomQuestions = getRandomQ(data, 10);
+        const randomQuestions = getRandomQ(data, MAX_QUESTION_COUNT);
         setQuestions(randomQuestions);
       })
       .catch((error) => console.error("에러 확인:", error));
@@ -31,7 +33,7 @@ export default function Question() {
   };
 
   const handleAnswerSelect = (answer) => {
-    if (currentIndex >= 10) {
+    if (currentIndex >= MAX_QUESTION_COUNT - 1) {
       let maxType = 0;
       let typeIndex = 0;
       for (let i = 0; i < dormitoryArr.length; i++) {
@@ -56,7 +58,11 @@ export default function Question() {
   return (
     <div>
       <img src={QuestionBackGround} className={styles.BackImg}></img>
-      <ProgressBar current={currentIndex} total={10} backColor={"#895555"} />
+      <ProgressBar
+        current={currentIndex}
+        total={MAX_QUESTION_COUNT}
+        backColor={"#895555"}
+      />
 
       {questions.length > 0 ? (
         <QuestionCard

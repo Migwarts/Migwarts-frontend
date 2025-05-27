@@ -139,7 +139,7 @@ export default function Login() {
         </div>
         {error && <div className={styles.ErrorMessage}>{error}</div>}
         <button className={styles.BtnSrt} disabled={loading}>
-          {loading ? "처리 중..." : "START"}
+          {loading ? "" : "START"}
         </button>
       </form>
     </div>
