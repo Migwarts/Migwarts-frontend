@@ -9,7 +9,7 @@ import backgroundImg from "../assets/images/chatBackgroundImg.png";
 import goHomeChat from "../assets/images/goHomeChat.png";
 import sendIcon from "../assets/images/send.svg";
 
-const dormitorys = ["Gryffindor", "Rauenclaw", "Hufflepuf", "Slytherin"];
+const dormitorys = ['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin'];
 
 function Chat() {
   const { name, number, userId } = useContext(InfoContext);
