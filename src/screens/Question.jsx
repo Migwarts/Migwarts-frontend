@@ -44,7 +44,7 @@ export default function Question() {
       }
       setDormitoryResult(typeIndex);
       setDormitoryArr(Array(4).fill(0));
-      navigate("/LoadingCamera", { state: { from: "question" } });
+      navigate("/Loading", { state: { from: "question" } });
     } else {
       setCurrentIndex((prev) => prev + 1);
       dormitoryArr[answer.type]++;

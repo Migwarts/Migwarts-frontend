@@ -30,7 +30,7 @@ export default function CharacterTest() {
   };
 
   const handleAnswerSelect = (answer) => {
-    if (currentIndex >= 10) {
+    if (currentIndex >= 9) {
       let maxType = 0;
       let maxIndex = 0;
       for (let i = 0; i < characterArr.length; i++) {
