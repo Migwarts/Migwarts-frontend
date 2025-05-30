@@ -24,7 +24,7 @@ function Chat() {
     if (mychat !== "") {
       setMyChatting((pre) => [...pre, mychat]);
       setMessage("");
-      await axios.post(`http://localhost:3001/api/post/chat/${userId}`, {
+      await axios.post(`http://13.124.135.183:3001/api/post/chat/${userId}`, {
         dormitory: dormitorys[dormitoryResult],
         newChat: mychat,
       });
@@ -41,7 +41,7 @@ function Chat() {
       try {
         console.log(`${dormitorys[dormitoryResult]}`);
         const response = await axios.get(
-          `http://localhost:3001/api/get/chat/${dormitorys[dormitoryResult]}`
+          `http://13.124.135.183:3001/api/get/chat/${dormitorys[dormitoryResult]}`
         );
         setChatData(response.data.data);
       } catch (error) {

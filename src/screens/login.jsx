@@ -31,7 +31,7 @@ export default function Login() {
     try {
       console.log("📡 데이터 전송 중:", { number: studentId, name }); // 👈 여기도 로그 추가
 
-      const response = await fetch("http://localhost:3001/api/post/users", {
+      const response = await fetch("http://13.124.135.183:3001/api/post/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ number: studentId, name }),
