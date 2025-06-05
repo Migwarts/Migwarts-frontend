@@ -62,7 +62,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .PickArrow {
-  margin-left: 240px;
+  margin-left: 180px;
 }
 
 .ChooseDorm {
@@ -73,7 +73,7 @@ input[type="number"]::-webkit-inner-spin-button {
   line-height: 150%;
   transform: rotate(-6.07deg);
   margin-top: -52px;
-  margin-left: 325px;
+  margin-left: 275px;
   width: 300px;
 }
 
