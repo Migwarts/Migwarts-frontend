@@ -18,7 +18,7 @@ export default function Question() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("/public/data/questionData.json")
+    fetch("/data/questionData.json")
       .then((response) => response.json())
       .then((data) => {
         const randomQuestions = getRandomQ(data, MAX_QUESTION_COUNT);
