@@ -15,7 +15,7 @@ export default function CharacterTest() {
     useContext(ResultContext);
 
   useEffect(() => {
-    fetch("/public/data/questionDataChr.json")
+    fetch("/data/questionDataChr.json")
       .then((response) => response.json())
       .then((data) => {
         const randomQuestions = getRandomQ(data, 10);
