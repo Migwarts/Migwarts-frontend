@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://13.124.135.183:3001/api")
+      .get("/api")
       .then((response) => {
         setMessage(response.data.message);
       })
