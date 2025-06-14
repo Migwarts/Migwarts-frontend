@@ -9,7 +9,7 @@ import backgroundImg from "../assets/images/chatBackgroundImg.png";
 import goHomeChat from "../assets/images/goHomeChat.png";
 import sendIcon from "../assets/images/send.svg";
 
-const dormitorys = ['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin'];
+const dormitorys = ["Gryffindor", "Ravenclaw", "Hufflepuff", "Slytherin"];
 
 function Chat() {
   const { name, number, userId } = useContext(InfoContext);
@@ -24,7 +24,7 @@ function Chat() {
     if (mychat !== "") {
       setMyChatting((pre) => [...pre, mychat]);
       setMessage("");
-      await axios.post(`http://13.124.135.183:3001/api/post/chat/${userId}`, {
+      await axios.post(`/api/post/chat/${userId}`, {
         dormitory: dormitorys[dormitoryResult],
         newChat: mychat,
       });
@@ -41,7 +41,7 @@ function Chat() {
       try {
         console.log(`${dormitorys[dormitoryResult]}`);
         const response = await axios.get(
-          `http://13.124.135.183:3001/api/get/chat/${dormitorys[dormitoryResult]}`
+          `/api/get/chat/${dormitorys[dormitoryResult]}`
         );
         setChatData(response.data.data);
       } catch (error) {
