@@ -5,7 +5,7 @@ import { ResultContext } from "../context/ResultContext";
 
 import QuestionBackGround from "../assets/images/questionBackgroundImg.png";
 import ProgressBar from "../components/ProgressBar";
-import QuestionCard from "../components/questionCard";
+import QuestionCard from "../components/QuestionCard";
 
 const MAX_QUESTION_COUNT = 10;
 
