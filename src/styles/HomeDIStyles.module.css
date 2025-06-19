@@ -1,86 +1,146 @@
 html,
 body {
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    /* 필요하면 패딩도 제거 */
-    box-sizing: border-box;
-    /* 레이아웃 깨짐 방지 */
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  /* 필요하면 패딩도 제거 */
+  box-sizing: border-box;
+  /* 레이아웃 깨짐 방지 */
 }
 
 .body {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .backgroundImg {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .homeButton {
-    width: 6.8vw;
-    height: auto;
-    position: absolute;
-    z-index: 2;
-    left: 6.1vw;
-    top: 5.7vw;
+  width: 6.8vw;
+  height: auto;
+  position: absolute;
+  z-index: 2;
+  left: 6.1vw;
+  top: 5.7vw;
 }
 
 .markContainer {
-    width: 10.3vw;
-    height: 36.7vw;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    position: absolute;
-    z-index: 2;
-    top: 6.1vw;
-    right: 5.9vw;
-    row-gap: 14;
+  width: 10.3vw;
+  height: 36.7vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  top: 6.1vw;
+  right: 5.9vw;
+  row-gap: 14;
 }
 
 .markItem {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .dot {
-    width: 0.52vw;
-    height: 0.52vw;
-    background-color: #BABABA;
-    border-radius: 0.52vw;
+  width: 0.52vw;
+  height: 0.52vw;
+  background-color: #bababa;
+  border-radius: 0.52vw;
 }
 
-.GMark {
-    width: 7.8vw;
-    height: auto;
+/* 마크 래퍼들 - 빛 애니메이션을 위해 추가 */
+.GMarkWrapper,
+.HMarkWrapper,
+.RMarkWrapper,
+.SMarkWrapper {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: inline-block;
 }
 
-.HMark {
-    width: 7.7vw;
-    height: auto;
+.GMarkWrapper {
+  width: 7.8vw;
+  height: auto;
 }
 
-.RMark {
-    width: 7.8vw;
-    height: auto;
+.HMarkWrapper {
+  width: 7.7vw;
+  height: auto;
 }
 
-.SMark {
-    width: 7.5vw;
-    height: auto;
+.RMarkWrapper {
+  width: 7.8vw;
+  height: auto;
 }
 
+.SMarkWrapper {
+  width: 7.5vw;
+  height: auto;
+}
+
+/* 이미지들은 부모 크기에 맞춤 */
 .GMark,
 .HMark,
 .RMark,
 .SMark {
-    cursor: pointer;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 빛 애니메이션 keyframe */
+@keyframes markShimmer {
+  0% {
+    left: -15px;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 25px);
+    opacity: 0;
+  }
+}
+
+/* 빛 애니메이션 */
+.GMarkWrapper::after,
+.HMarkWrapper::after,
+.RMarkWrapper::after,
+.SMarkWrapper::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -15px;
+  width: 8px;
+  height: calc(100% + 40px);
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.9),
+    transparent
+  );
+  transform: rotate(30deg);
+  opacity: 0;
+}
+
+.GMarkWrapper:hover::after,
+.HMarkWrapper:hover::after,
+.RMarkWrapper:hover::after,
+.SMarkWrapper:hover::after {
+  animation: markShimmer 1.5s ease-out;
 }
