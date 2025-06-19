@@ -66,37 +66,45 @@ export default function Login() {
         <img src={LoginBackGround} className={styles.LoginBackImg} />
         <div className={styles.DormImg}>
           <div className={styles.GryRav}>
-            <img
-              src={Gryffindor}
-              className={styles.GryffindorImg}
-              onClick={() => {
-                goHomeDI(0);
-              }}
-            />
-            <img
-              src={Ravenclaw}
-              className={styles.RavenclawImg}
-              onClick={() => {
-                goHomeDI(1);
-              }}
-            />
+            <div className={styles.GryffindorWrapper}>
+              <img
+                src={Gryffindor}
+                className={styles.GryffindorImg}
+                onClick={() => {
+                  goHomeDI(0);
+                }}
+              />
+            </div>
+            <div className={styles.RavenclawWrapper}>
+              <img
+                src={Ravenclaw}
+                className={styles.RavenclawImg}
+                onClick={() => {
+                  goHomeDI(1);
+                }}
+              />
+            </div>
           </div>
           <img src={MigwartsLogo} className={styles.MigwartsLogo} />
           <div className={styles.HufSly}>
-            <img
-              src={Hufflepuf}
-              className={styles.HufflepufImg}
-              onClick={() => {
-                goHomeDI(2);
-              }}
-            />
-            <img
-              src={Slytherin}
-              className={styles.SlytherinImg}
-              onClick={() => {
-                goHomeDI(3);
-              }}
-            />
+            <div className={styles.HufflepufWrapper}>
+              <img
+                src={Hufflepuf}
+                className={styles.HufflepufImg}
+                onClick={() => {
+                  goHomeDI(2);
+                }}
+              />
+            </div>
+            <div className={styles.SlytherinWrapper}>
+              <img
+                src={Slytherin}
+                className={styles.SlytherinImg}
+                onClick={() => {
+                  goHomeDI(3);
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
