@@ -64,13 +64,15 @@ function HomeDI() {
               backgroundColor: backgroundImgSrc === 0 ? "#660000" : "#BABABA",
             }}
           />
-          <img
-            src={GryffindorMark}
-            className={styles.GMark}
-            onClick={() => {
-              markClick(0);
-            }}
-          />
+          <div className={styles.GMarkWrapper}>
+            <img
+              src={GryffindorMark}
+              className={styles.GMark}
+              onClick={() => {
+                markClick(0);
+              }}
+            />
+          </div>
         </div>
         <div className={styles.markItem}>
           <div
@@ -79,13 +81,15 @@ function HomeDI() {
               backgroundColor: backgroundImgSrc === 1 ? "#1A3956" : "#BABABA",
             }}
           />
-          <img
-            src={RauenclawMark}
-            className={styles.HMark}
-            onClick={() => {
-              markClick(1);
-            }}
-          />
+          <div className={styles.HMarkWrapper}>
+            <img
+              src={RauenclawMark}
+              className={styles.HMark}
+              onClick={() => {
+                markClick(1);
+              }}
+            />
+          </div>
         </div>
         <div className={styles.markItem}>
           <div
@@ -94,13 +98,15 @@ function HomeDI() {
               backgroundColor: backgroundImgSrc === 2 ? "#FF9D0B" : "#BABABA",
             }}
           />
-          <img
-            src={HufflepufMark}
-            className={styles.RMark}
-            onClick={() => {
-              markClick(2);
-            }}
-          />
+          <div className={styles.RMarkWrapper}>
+            <img
+              src={HufflepufMark}
+              className={styles.RMark}
+              onClick={() => {
+                markClick(2);
+              }}
+            />
+          </div>
         </div>
         <div className={styles.markItem}>
           <div
@@ -109,13 +115,15 @@ function HomeDI() {
               backgroundColor: backgroundImgSrc === 3 ? "#2F751C" : "#BABABA",
             }}
           />
-          <img
-            src={SlytherinMark}
-            className={styles.SMark}
-            onClick={() => {
-              markClick(3);
-            }}
-          />
+          <div className={styles.SMarkWrapper}>
+            <img
+              src={SlytherinMark}
+              className={styles.SMark}
+              onClick={() => {
+                markClick(3);
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
