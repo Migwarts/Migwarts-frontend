@@ -19,59 +19,60 @@ function Chat() {
   const inputRef = useRef(null);
   const [message, setMessage] = useState("");
   const [myChatting, setMyChatting] = useState([]);
+
+  const fetchChat = async () => {
+    try {
+      const response = await axios.get(
+        `/api/get/chat/${dormitorys[dormitoryResult]}`
+      );
+      setChatData(response.data.data || []);
+    } catch (error) {
+      console.error("Failed to fetch chat data:", error);
+    }
+  };
+
   const addChat = async () => {
     const mychat = message.trim();
-    if (mychat !== "") {
-      setMyChatting((pre) => [...pre, mychat]);
-      setMessage("");
+    if (!mychat) return;
+
+    try {
       await axios.post(`/api/post/chat/${userId}`, {
         dormitory: dormitorys[dormitoryResult],
         newChat: mychat,
       });
+
+      setMyChatting((prev) => [...prev, mychat]);
+      setMessage("");
+    } catch (error) {
+      console.error("❌ Failed to send chat:", error);
     }
   };
+
   const handleKeyDown = (event) => {
     if (event.key === "Enter" && !event.shiftKey) {
-      addChat();
       event.preventDefault();
+      addChat();
     }
   };
+
   useEffect(() => {
-    const fetchChat = async () => {
-      try {
-        console.log(`${dormitorys[dormitoryResult]}`);
-        const response = await axios.get(
-          `/api/get/chat/${dormitorys[dormitoryResult]}`
-        );
-        setChatData(response.data.data);
-      } catch (error) {
-        console.error("Failed to fetch chat data:", error);
-      }
-    };
     fetchChat();
-  }, []);
-  useEffect(() => {
-    if (chatData.length > 0) {
-      if (
-        chatData[chatData.length - 1].number == number &&
-        chatData[chatData.length - 1].name == name
-      ) {
-        const last = chatData.pop();
-        setMyChatting(last.chat);
-      }
-    }
-  }, [chatData]);
+  }, [dormitoryResult]);
+
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [myChatting]);
+  }, [chatData, myChatting]);
+
   const inputChange = () => {
     if (inputRef.current) {
       setMessage(inputRef.current.value);
     }
   };
+
   useEffect(() => {
+    if (!inputRef.current) return;
     if (message.length < 40) {
       inputRef.current.style.height = `${window.innerWidth * 0.01985}px`;
     } else {
@@ -79,6 +80,7 @@ function Chat() {
       inputRef.current.style.height = `${inputRef.current.scrollHeight}px`;
     }
   }, [message]);
+
   return (
     <div
       style={{ backgroundImage: `url(${backgroundImg})` }}
@@ -92,12 +94,12 @@ function Chat() {
           <div className={styles.gradient} />
           {chatData.length > 0 &&
             chatData.map((item, index) => {
-              if (item.number === number) {
+              if (item.number == number) {
                 return (
                   <div className={styles.myChatContainer} key={index}>
-                    <span
-                      className={styles.name}
-                    >{`${item.number} ${item.name}`}</span>
+                    <span className={styles.name}>
+                      {`${item.number} ${item.name}`}
+                    </span>
                     {item.chat.map((element, key) => (
                       <span className={styles.myChat} key={key}>
                         {element}
@@ -108,9 +110,9 @@ function Chat() {
               } else {
                 return (
                   <div className={styles.otherChatContainer} key={index}>
-                    <span
-                      className={styles.name}
-                    >{`${item.number} ${item.name}`}</span>
+                    <span className={styles.name}>
+                      {`${item.number} ${item.name}`}
+                    </span>
                     {item.chat.map((element, key) => (
                       <span className={styles.otherChat} key={key}>
                         {element}
@@ -131,6 +133,7 @@ function Chat() {
             </div>
           )}
         </div>
+
         <div className={styles.inputChat}>
           <textarea
             ref={inputRef}
