@@ -1,0 +1,113 @@
+@font-face {
+    font-family: "omyuPretty";
+    src: url("../assets/fonts/omyuPretty.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'GangwonEdu\_OTFBoldA';
+    src: url('[https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts\_2201-2@1.0/GangwonEdu\_OTFBoldA.woff](https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff)') format('woff');
+}
+
+@font-face {
+    font-family: 'GangwonEdu\_OTFLightA';
+    src: url('[https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts\_2201-2@1.0/GangwonEdu\_OTFLightA.woff](https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFLightA.woff)') format('woff');
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'GangwonEdu\_OTFLightA', 'omyuPretty', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+.chat-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 3vw 5vw 5vw;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+}
+
+.chat-log {
+    width: 100%;
+    max-height: 70vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+    margin-bottom: 3vw;
+    scrollbar-width: none;
+}
+
+.chat-log::-webkit-scrollbar {
+    display: none;
+}
+
+.msg-me {
+    align-self: flex-end;
+    max-width: 40vw;
+    background-color: #F09D30;
+    color: white;
+    padding: 1vw 1.5vw;
+    border-radius: 1vw 1vw 0.5vw 1vw;
+    font-family: 'GangwonEdu\_OTFBoldA';
+    font-size: 1.2vw;
+    word-break: break-word;
+}
+
+.msg-ai {
+    align-self: flex-start;
+    max-width: 40vw;
+    background-color: white;
+    color: black;
+    padding: 1vw 1.5vw;
+    border-radius: 1vw 1vw 1vw 0.5vw;
+    font-family: 'GangwonEdu\_OTFBoldA';
+    font-size: 1.2vw;
+    word-break: break-word;
+}
+
+.input-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+
+.chat-input {
+    flex: 1;
+    max-width: 40vw;
+    height: 3.5vw;
+    border-radius: 0.8vw;
+    border: none;
+    outline: none;
+    font-family: 'GangwonEdu\_OTFLightA';
+    font-size: 1.3vw;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    padding: 0 1.5vw;
+    box-sizing: border-box;
+}
+
+.chat-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chat-button {
+    width: 5.45vw;
+    height: 3.45vw;
+    background-color: #F09D30;
+    border-radius: 10px;
+    font-family: 'GangwonEdu\_OTFLightA';
+    font-size: 23px;
+    color: white;
+    line-height: 3.45vw;
+    padding: 0;
+    text-align: center;
+}
