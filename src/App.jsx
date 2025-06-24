@@ -14,6 +14,7 @@ import Login from "./screens/login";
 import { ResultContextProvider } from "./context/ResultContext";
 import { InfoContextProvider } from "./context/InfoContext";
 import react from "./styles/resetStyles.module.css";
+import ChatBot from "./screens/Chatbot";
 
 function App() {
   const [message, setMessage] = useState("");
@@ -44,6 +45,7 @@ function App() {
             <Route path="/characterTest" element={<CharacterTest />} />
             <Route path="/LoadingCamera" element={<LoadingCamera />} />
             <Route path="/ResultCharacter" element={<ResultCharacter />} />
+            <Route path="/Chatbot" element={<ChatBot />} />
           </Routes>
         </Router>
       </InfoContextProvider>
